@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "The Study Nook",
+    "location": "Quezon City",
+    "price": 300,
+    "main_image": "/assets/space-1.jpg",
+    "images": ["/assets/space1_a.jpg", "/assets/space1_b.jpg"],
+    "description": "A quiet and cozy space perfect for deep focus sessions. Equipped with soundproof pods and an extensive library for a productive day.",
+    "amenities": [
+      "High-speed Wi-Fi",
+      "Free Coffee & Tea",
+      "Power Outlets at every seat",
+      "Air-conditioned",
+      "Printing Services"
+    ],
+    "hours": "9:00 AM - 9:00 PM",
+    "time_slots": ["9am - 1pm", "1pm - 5pm", "5pm - 9pm"]
+  },
+  {
+    "id": 2,
+    "name": "WorkHaven Makati",
+    "location": "Makati City",
+    "price": 500,
+    "main_image": "/assets/space-2.jpg",
+    "images": ["/assets/space2_a.jpg", "/assets/space2_b.jpg"],
+    "description": "A professional co-working environment in the heart of the business district. Ideal for meetings, collaborations, and networking.",
+    "amenities": [
+      "Fiber Internet",
+      "Meeting Rooms",
+      "Gourmet Pantry",
+      "24/7 Access",
+      "Ergonomic Chairs"
+    ],
+    "hours": "Open 24/7",
+    "time_slots": ["Full Day Pass", "Night Owl Pass (9pm-6am)"]
+  },
+  {
+    "id": 3,
+    "name": "Cebu Creative Hub",
+    "location": "Cebu City",
+    "price": 250,
+    "main_image": "/assets/space-3.jpg",
+    "images": [],
+    "description": "A vibrant and artistic space designed to foster creativity and collaboration among Cebu's digital nomads and artists.",
+    "amenities": [
+      "Community Events",
+      "Art Supplies",
+      "Fast Wi-Fi",
+      "Pet-friendly",
+      "Outdoor Garden"
+    ],
+    "hours": "10:00 AM - 7:00 PM",
+    "time_slots": ["Morning Session (10am-2pm)", "Afternoon Session (2pm-6pm)"]
+  },
+  {
+    "id": 4,
+    "name": "Manila Tech Lab",
+    "location": "Manila",
+    "price": 400,
+    "main_image": "/assets/space-4.jpg",
+    "images": ["/assets/space4_a.jpg"],
+    "description": "A tech-focused hub with coding stations and whiteboards for developers and startups.",
+    "amenities": [
+      "High-speed Internet",
+      "Whiteboards",
+      "Snacks Provided",
+      "Air-conditioned",
+      "Projector"
+    ],
+    "hours": "8:00 AM - 10:00 PM",
+    "time_slots": ["8am - 12pm", "12pm - 4pm", "4pm - 8pm"]
+  },
+  {
+    "id": 5,
+    "name": "Davao Focus Zone",
+    "location": "Davao City",
+    "price": 200,
+    "main_image": "/assets/space-5.jpg",
+    "images": ["/assets/space5_a.jpg", "/assets/space5_b.jpg"],
+    "description": "A serene study area in Davao, ideal for students and remote workers seeking peace.",
+    "amenities": [
+      "Wi-Fi",
+      "Quiet Zones",
+      "Natural Lighting",
+      "Vending Machines",
+      "Security"
+    ],
+    "hours": "7:00 AM - 8:00 PM",
+    "time_slots": ["7am - 11am", "11am - 3pm", "3pm - 7pm"]
+  },
+  {
+    "id": 6,
+    "name": "Baguio Chill Spot",
+    "location": "Baguio City",
+    "price": 350,
+    "main_image": "/assets/space-6.jpg",
+    "images": [],
+    "description": "Cool mountain vibes with cozy nooks for relaxed productivity in Baguio.",
+    "amenities": [
+      "Free Wi-Fi",
+      "Hot Beverages",
+      "Comfy Seating",
+      "Bookshelf",
+      "Heated Rooms"
+    ],
+    "hours": "9:00 AM - 6:00 PM",
+    "time_slots": ["9am - 12pm", "12pm - 3pm", "3pm - 6pm"]
+  },
+  {
+    "id": 7,
+    "name": "Clark Innovation Center",
+    "location": "Clark Freeport Zone",
+    "price": 450,
+    "main_image": "/assets/space-7.jpg",
+    "images": ["/assets/space7_a.jpg"],
+    "description": "Modern facilities for innovators and business professionals near the airport.",
+    "amenities": [
+      "Ultra-fast Internet",
+      "Conference Rooms",
+      "Catering Services",
+      "Gym Access",
+      "Parking"
+    ],
+    "hours": "Open 24/7",
+    "time_slots": ["Day Pass", "Evening Pass (6pm-12am)"]
+  },
+  {
+    "id": 8,
+    "name": "Iloilo Study Cafe",
+    "location": "Iloilo City",
+    "price": 220,
+    "main_image": "/assets/space-8.jpg",
+    "images": ["/assets/space8_a.jpg", "/assets/space8_b.jpg"],
+    "description": "Cafe-style study space with coffee and light meals for all-day sessions.",
+    "amenities": [
+      "Wi-Fi",
+      "Coffee Bar",
+      "Plugs Everywhere",
+      "AC",
+      "Board Games"
+    ],
+    "hours": "8:00 AM - 10:00 PM",
+    "time_slots": ["8am - 2pm", "2pm - 8pm", "8pm - 10pm"]
+  },
+  {
+    "id": 9,
+    "name": "Pampanga Work Pod",
+    "location": "Pampanga",
+    "price": 280,
+    "main_image": "/assets/space-9.jpg",
+    "images": [],
+    "description": "Private pods for focused work in a suburban setting.",
+    "amenities": [
+      "Private Pods",
+      "High-Speed Wi-Fi",
+      "Snacks",
+      "Ergonomic Setup",
+      "Quiet Environment"
+    ],
+    "hours": "9:00 AM - 7:00 PM",
+    "time_slots": ["9am - 1pm", "1pm - 5pm"]
+  },
+  {
+    "id": 10,
+    "name": "Batangas Retreat Hub",
+    "location": "Batangas City",
+    "price": 320,
+    "main_image": "/assets/space-10.jpg",
+    "images": ["/assets/space10_a.jpg"],
+    "description": "Nature-inspired retreat for creative thinking and relaxation.",
+    "amenities": [
+      "Wi-Fi",
+      "Garden View",
+      "Yoga Mats",
+      "Organic Tea",
+      "Outdoor Seating"
+    ],
+    "hours": "10:00 AM - 8:00 PM",
+    "time_slots": ["10am - 2pm", "2pm - 6pm", "6pm - 8pm"]
+  }
+]
