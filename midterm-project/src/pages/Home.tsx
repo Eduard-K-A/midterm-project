@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SpaceCard } from '../components/SpaceCard';
-import spaces from '../data/spaces.json'; 
-import Footer from '../pages/Footer';
+import spaces from '../data/spaces.json';
+import Footer from './Footer';
 
 export const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,6 +21,9 @@ export const Home: React.FC = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full p-2 border rounded"
         />
+        {searchTerm && filteredSpaces.length === 0 && (
+          <p className="mt-2 text-center">No results found</p>
+        )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredSpaces.map(space => (
