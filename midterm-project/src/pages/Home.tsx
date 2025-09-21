@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SpaceCard } from '../components/SpaceCard';
-import spaces from '../data/spaces.json'; // Changed from spaces.ts
+import spaces from '../data/spaces.json'; 
+import Footer from '../pages/Footer';
 
 export const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,6 +27,7 @@ export const Home: React.FC = () => {
           <SpaceCard key={space.id} space={space} />
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };
