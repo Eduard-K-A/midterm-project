@@ -4,7 +4,7 @@
     "name": "The Study Nook",
     "location": "Quezon City",
     "price": 300,
-    "main_image": "/assets/space-1.jpg",
+    "main_image": "/assets/studyNook.jpg",
     "images": ["/assets/space1_a.jpg", "/assets/space1_b.jpg"],
     "description": "A quiet and cozy space perfect for deep focus sessions. Equipped with soundproof pods and an extensive library for a productive day.",
     "amenities": [

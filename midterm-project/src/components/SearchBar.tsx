@@ -12,16 +12,27 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     onSearch(query)
   }
 
+
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
+    <form
+      onSubmit={handleSubmit}
+      className="mb-6 flex justify-center"
+      role="search"
+    >
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search by name or location..."
-        style={{ padding: '8px', width: '300px' }}
+        className="w-full max-w-md p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        aria-label="Search study spaces"
       />
-      <button type="submit" style={{ padding: '8px 16px', marginLeft: '10px' }}>Search</button>
+      <button
+        type="submit"
+        className="bg-blue-600 text-white p-2 rounded-r-md hover:bg-blue-700 transition duration-200"
+      >
+        Search
+      </button>
     </form>
   )
 }

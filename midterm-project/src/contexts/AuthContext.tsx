@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import type { ReactNode } from 'react'
 
 interface User {
   name: string

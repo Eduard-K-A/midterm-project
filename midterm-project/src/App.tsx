@@ -4,18 +4,21 @@ import Home from './pages/Home'
 import SpaceDetail from './pages/SpaceDetail'
 import Dashboard from './pages/Dashboard'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
-import './App.css'
+import type { ReactNode } from "react";
 
-function ProtectedRoute({ children }: { children: JSX.Element }) {
-  const { user } = useAuth()
-  return user ? children : <Navigate to="/" replace />
+function ProtectedRoute({ children }: { children: ReactNode }) {
+  const { user } = useAuth();
+  return user ? <>{children}</> : <Navigate to="/" replace />;
 }
 
 function AppContent() {
   return (
-    <div className="App">
+    <div className="min-h-screen flex flex-col bg-red-50">
+      {/* Sticky header with shadow */}
       <Header />
-      <main>
+
+      {/* Main content area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto py-8 px-4 lg:px-8">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/space/:spaceId" element={<SpaceDetail />} />
@@ -33,6 +36,7 @@ function AppContent() {
     </div>
   )
 }
+
 
 function App() {
   return (
