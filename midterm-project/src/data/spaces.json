@@ -55,128 +55,86 @@
   },
   {
     "id": 4,
-    "name": "Manila Tech Lab",
+    "name": "Manila Focus Zone",
     "location": "Manila",
-    "price": 400,
+    "price": 350,
     "main_image": "/assets/space-4.jpg",
     "images": ["/assets/space4_a.jpg"],
-    "description": "A tech-focused hub with coding stations and whiteboards for developers and startups.",
-    "amenities": [
-      "High-speed Internet",
-      "Whiteboards",
-      "Snacks Provided",
-      "Air-conditioned",
-      "Projector"
-    ],
-    "hours": "8:00 AM - 10:00 PM",
+    "description": "Modern workspace with private booths for maximum concentration.",
+    "amenities": ["High-speed Wi-Fi", "Quiet Zones", "Coffee Bar", "Air-conditioned"],
+    "hours": "8:00 AM - 8:00 PM",
     "time_slots": ["8am - 12pm", "12pm - 4pm", "4pm - 8pm"]
   },
   {
     "id": 5,
-    "name": "Davao Focus Zone",
+    "name": "Davao Work Loft",
     "location": "Davao City",
-    "price": 200,
+    "price": 400,
     "main_image": "/assets/space-5.jpg",
     "images": ["/assets/space5_a.jpg", "/assets/space5_b.jpg"],
-    "description": "A serene study area in Davao, ideal for students and remote workers seeking peace.",
-    "amenities": [
-      "Wi-Fi",
-      "Quiet Zones",
-      "Natural Lighting",
-      "Vending Machines",
-      "Security"
-    ],
-    "hours": "7:00 AM - 8:00 PM",
-    "time_slots": ["7am - 11am", "11am - 3pm", "3pm - 7pm"]
+    "description": "Spacious loft-style co-working space with natural light and modern amenities.",
+    "amenities": ["Fiber Internet", "Lounge Area", "Snack Bar", "24/7 Access"],
+    "hours": "Open 24/7",
+    "time_slots": ["Full Day Pass", "Evening Pass (6pm-12am)"]
   },
   {
     "id": 6,
-    "name": "Baguio Chill Spot",
+    "name": "Baguio Study Haven",
     "location": "Baguio City",
-    "price": 350,
+    "price": 280,
     "main_image": "/assets/space-6.jpg",
     "images": [],
-    "description": "Cool mountain vibes with cozy nooks for relaxed productivity in Baguio.",
-    "amenities": [
-      "Free Wi-Fi",
-      "Hot Beverages",
-      "Comfy Seating",
-      "Bookshelf",
-      "Heated Rooms"
-    ],
+    "description": "Cozy workspace with a cool climate, perfect for focused study sessions.",
+    "amenities": ["Fast Wi-Fi", "Coffee & Tea", "Heaters", "Outdoor Patio"],
     "hours": "9:00 AM - 6:00 PM",
-    "time_slots": ["9am - 12pm", "12pm - 3pm", "3pm - 6pm"]
+    "time_slots": ["9am - 1pm", "1pm - 6pm"]
   },
   {
     "id": 7,
-    "name": "Clark Innovation Center",
-    "location": "Clark Freeport Zone",
-    "price": 450,
+    "name": "Iloilo Creative Corner",
+    "location": "Iloilo City",
+    "price": 320,
     "main_image": "/assets/space-7.jpg",
     "images": ["/assets/space7_a.jpg"],
-    "description": "Modern facilities for innovators and business professionals near the airport.",
-    "amenities": [
-      "Ultra-fast Internet",
-      "Conference Rooms",
-      "Catering Services",
-      "Gym Access",
-      "Parking"
-    ],
-    "hours": "Open 24/7",
-    "time_slots": ["Day Pass", "Evening Pass (6pm-12am)"]
+    "description": "Inspiring space for creatives with vibrant decor and collaborative areas.",
+    "amenities": ["High-speed Wi-Fi", "Art Supplies", "Meeting Rooms", "Snack Bar"],
+    "hours": "10:00 AM - 8:00 PM",
+    "time_slots": ["10am - 2pm", "2pm - 6pm", "6pm - 8pm"]
   },
   {
     "id": 8,
-    "name": "Iloilo Study Cafe",
-    "location": "Iloilo City",
-    "price": 220,
+    "name": "Taguig Tech Hub",
+    "location": "Taguig City",
+    "price": 450,
     "main_image": "/assets/space-8.jpg",
     "images": ["/assets/space8_a.jpg", "/assets/space8_b.jpg"],
-    "description": "Cafe-style study space with coffee and light meals for all-day sessions.",
-    "amenities": [
-      "Wi-Fi",
-      "Coffee Bar",
-      "Plugs Everywhere",
-      "AC",
-      "Board Games"
-    ],
-    "hours": "8:00 AM - 10:00 PM",
-    "time_slots": ["8am - 2pm", "2pm - 8pm", "8pm - 10pm"]
+    "description": "High-tech workspace designed for tech professionals and startups.",
+    "amenities": ["Fiber Internet", "Conference Rooms", "3D Printers", "24/7 Access"],
+    "hours": "Open 24/7",
+    "time_slots": ["Full Day Pass", "Night Pass (8pm-4am)"]
   },
   {
     "id": 9,
-    "name": "Pampanga Work Pod",
-    "location": "Pampanga",
-    "price": 280,
+    "name": "Batangas Study Escape",
+    "location": "Batangas City",
+    "price": 270,
     "main_image": "/assets/space-9.jpg",
     "images": [],
-    "description": "Private pods for focused work in a suburban setting.",
-    "amenities": [
-      "Private Pods",
-      "High-Speed Wi-Fi",
-      "Snacks",
-      "Ergonomic Setup",
-      "Quiet Environment"
-    ],
-    "hours": "9:00 AM - 7:00 PM",
-    "time_slots": ["9am - 1pm", "1pm - 5pm"]
+    "description": "Tranquil workspace with a scenic view, ideal for relaxed productivity.",
+    "amenities": ["Wi-Fi", "Coffee Bar", "Outdoor Seating", "Air-conditioned"],
+    "hours": "8:00 AM - 6:00 PM",
+    "time_slots": ["8am - 12pm", "12pm - 6pm"]
   },
   {
     "id": 10,
-    "name": "Batangas Retreat Hub",
-    "location": "Batangas City",
-    "price": 320,
+    "name": "Pampanga Work Nook",
+    "location": "Pampanga",
+    "price": 300,
     "main_image": "/assets/space-10.jpg",
     "images": ["/assets/space10_a.jpg"],
-    "description": "Nature-inspired retreat for creative thinking and relaxation.",
-    "amenities": [
-      "Wi-Fi",
-      "Garden View",
-      "Yoga Mats",
-      "Organic Tea",
-      "Outdoor Seating"
-    ],
-    "hours": "10:00 AM - 8:00 PM",
-    "time_slots": ["10am - 2pm", "2pm - 6pm", "6pm - 8pm"]
+    "description": "Comfortable workspace with a homey feel, great for long study sessions.",
+    "amenities": ["High-speed Wi-Fi", "Free Snacks", "Lounge Area", "Printing Services"],
+    "hours": "9:00 AM - 7:00 PM",
+    "time_slots": ["9am - 2pm", "2pm - 7pm"]
   }
 ]

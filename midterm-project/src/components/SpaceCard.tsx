@@ -1,28 +1,24 @@
-import { Link } from 'react-router-dom'
-import type { Space } from '../types'
+import { Link } from 'react-router-dom';
+import { Space } from '../types';
 
 interface SpaceCardProps {
-  space: Space
+  space: Space;
 }
 
-export default function SpaceCard({ space }: SpaceCardProps) {
+export const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-80 m-4">
-      <img
-        src={space.main_image}
-        alt={space.name}
-        className="w-full h-48 object-cover"
-      />
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800">{space.name}</h3>
-        <p className="text-gray-600">{space.location} - ₱{space.price}/day</p>
-        <Link
-          to={`/space/${space.id}`}
-          className="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-200"
-        >
-          View Details
-        </Link>
-      </div>
+    <div className="border rounded-lg p-4 shadow hover:shadow-lg transition">
+      <img src={space.main_image} alt={space.name} className="w-full h-48 object-cover rounded" />
+      <h3 className="text-xl font-semibold mt-2">{space.name}</h3>
+      <p className="text-gray-600">{space.location}</p>
+      <p className="text-gray-800 font-bold">₱{space.price}/slot</p>
+      <p className="text-gray-600 mt-2 line-clamp-2">{space.description}</p>
+      <Link
+        to={`/space/${space.id}`}
+        className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        View Details
+      </Link>
     </div>
-  )
-}
+  );
+};

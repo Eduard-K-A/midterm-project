@@ -1,41 +1,54 @@
-import { useAuth } from '../contexts/AuthContext'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
-export default function Header() {
-  const { user, login, logout } = useAuth()
+export const Header: React.FC = () => {
+  const { user, login, logout } = useAuth();
+  const [username, setUsername] = useState('');
 
-  const handleLogin = () => {
-    const name = prompt('Enter your name to login:')
-    if (name) login(name)
-  }
+  const handleLogout = () => {
+    logout();
+    setUsername('');
+  };
 
   return (
-    <header className="bg-white-600 text-black shadow-md">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">StudySpot PH</Link>
-        <div className="space-x-4">
-          <Link to="/" className="hover:text-black-200">Home</Link>
-          <Link to="/dashboard/my-bookings" className="hover:text-black-200">Dashboard</Link>
+    <header className="bg-blue-600 text-white p-4 sticky top-0 z-10">
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-2xl font-bold">
+          <Link to="/">StudySpot PH</Link>
+        </h1>
+        <nav className="flex items-center space-x-4">
+          <Link to="/" className="hover:underline">Home</Link>
           {user ? (
-            <span className="flex items-center space-x-2">
-              <span>Welcome, {user.name}</span>
-              <button
-                onClick={logout}
-                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
-              >
+            <>
+              <Link to="/dashboard/my-bookings" className="hover:underline">
+                My Bookings
+              </Link>
+              <span>Welcome, {user.username}</span>
+              <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded hover:bg-red-600">
                 Logout
               </button>
-            </span>
+            </>
           ) : (
-            <button
-              onClick={handleLogin}
-              className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
-            >
-              Login
-            </button>
+            <div className="flex items-center space-x-2">
+              <input
+                type="text"
+                placeholder="Enter Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="p-1 rounded text-black"
+              />
+              <button
+                onClick={() => username && login(username)}
+                className="bg-green-500 px-3 py-1 rounded hover:bg-green-600"
+              >
+                Login
+                
+              </button>
+            </div>
           )}
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
-  )
-}
+  );
+};
