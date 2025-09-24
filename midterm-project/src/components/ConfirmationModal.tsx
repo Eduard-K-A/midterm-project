@@ -1,3 +1,4 @@
+import React, {useRef} from "react";
 interface ConfirmationModalProps {
   isOpen: boolean;
   onConfirm: () => void;
@@ -6,11 +7,20 @@ interface ConfirmationModalProps {
 }
 
 export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ isOpen, onConfirm, onCancel, message }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      onCancel();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    onClick={handleOverlayClick}>
+      <div ref={modalRef} className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
         <p className="mb-4">{message}</p>
         <div className="flex justify-end space-x-2">
           <button
