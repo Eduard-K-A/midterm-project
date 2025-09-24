@@ -8,7 +8,7 @@ interface SpaceCardProps {
 export const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
   return (
     <div className="border rounded-lg p-4 shadow hover:shadow-lg transition">
-      <img src={space.main_image} alt={space.name} className="w-full h-48 object-cover rounded" />
+      <img src={space.main_image} alt={space.name} className="object-fit rounded" />
       <h3 className="text-xl font-semibold mt-2">{space.name}</h3>
       <p className="text-gray-600">{space.location}</p>
       <p className="text-gray-800 font-bold">₱{space.price}/slot</p>
