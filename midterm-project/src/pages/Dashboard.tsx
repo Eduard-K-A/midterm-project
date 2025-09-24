@@ -44,8 +44,9 @@ export const Dashboard: React.FC = () => {
           {bookings.map((booking, index) => {
             const space = spaces.find(s => s.id === booking.spaceId);
             return (
-              <div key={index} className="border p-4 rounded shadow">
-                <h3 className="text-lg font-semibold">{space?.name}</h3>
+              <div key={index} className="border p-4 rounded shadow hover:shadow-lg transition">
+                <h3 className="text-lg font-semibold hover:underline cursor-pointer" 
+                onClick={() => navigate(`/space/${space?.id}`)}>{space?.name}</h3>
                 <p>Location: {space?.location}</p>
                 <p>Time Slot: {booking.timeSlot}</p>
                 <p>Date: {booking.date}</p>
