@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useBooking } from '../contexts/BookingContext';
-import { ConfirmationModal } from '../components/ConfirmationModal'; // Assuming ConfirmationModal is imported
+import { ConfirmationModal } from '../components/ConfirmationModal';
 import spaces from '../data/spaces.json';
 
 export const SpaceDetail: React.FC = () => {
@@ -13,7 +13,10 @@ export const SpaceDetail: React.FC = () => {
   const [date, setDate] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [bookingStatus, setBookingStatus] = useState<'success' | 'error' | null>(null);
   const navigate = useNavigate();
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const space = spaces.find(s => s.id === Number(id));
 
@@ -45,10 +48,21 @@ export const SpaceDetail: React.FC = () => {
       return;
     }
 
-    addBooking({ spaceId: space.id, timeSlot: selectedSlot, date });
-    alert('Booking successful!');
-    setSelectedSlot('');
-    setDate('');
+    setIsLoading(true);
+    setBookingStatus(null);
+    setTimeout(() => {
+      try {
+        addBooking({ spaceId: space.id, timeSlot: selectedSlot, date });
+        alert('Booking successful!');
+        setSelectedSlot('');
+        setDate('');
+      } catch (error) {
+        setBookingStatus('error');
+      } finally {
+        setIsLoading(false);
+        setTimeout(() => setBookingStatus(null), 3000); // Clear status after 3 seconds
+      }
+    }, 1000); // Simulate API call delay
   };
 
   const closeModal = () => {
@@ -68,19 +82,32 @@ export const SpaceDetail: React.FC = () => {
     setCurrentImageIndex(index);
   };
 
+  // Auto-rotate images
+  useEffect(() => {
+    let interval: number;
+    if (allImages.length > 1) {
+      interval = setInterval(() => {
+        if (carouselRef.current && !carouselRef.current.matches(':hover')) {
+          nextImage();
+        }
+      }, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [allImages.length]);
+
   return (
     <div className="container mx-auto p-4">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/2">
           {allImages.length > 0 && (
-            <div className="relative">
+            <div ref={carouselRef} className="relative">
               {/* Carousel Image */}
               <div className="overflow-hidden rounded-lg shadow-md bg-gray-100">
-                <div className="w-full h-64 sm:h-80 md:h-96 flex items-center justify-center">
+                <div className="w-full h-64 sm:h-80 md:h-96 flex items-center justify-center transition-opacity duration-500 ease-in-out">
                   <img
                     src={allImages[currentImageIndex]}
                     alt={`${space.name} ${currentImageIndex + 1}`}
-                    className="max-w-full max-h-full object-contain rounded-lg transition-all duration-500 ease-in-out hover:scale-105"
+                    className="max-w-full max-h-full object-contain rounded-lg transition-transform duration-500 ease-in-out hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />
@@ -91,17 +118,17 @@ export const SpaceDetail: React.FC = () => {
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-300"
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-4 rounded-full hover:bg-opacity-50 transition-all duration-300"
                     aria-label="Previous image"
                   >
-                    &larr;
+                    <span className="text-3xl">&larr;</span>
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-300"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-4 rounded-full hover:bg-opacity-50 transition-all duration-300"
                     aria-label="Next image"
                   >
-                    &rarr;
+                    <span className="text-3xl">&rarr;</span>
                   </button>
                   {/* Carousel Indicators */}
                   <div className="flex justify-center mt-4 space-x-2">
@@ -154,10 +181,19 @@ export const SpaceDetail: React.FC = () => {
             />
             <button
               onClick={handleBooking}
-              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className={`mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={isLoading}
             >
-              Book Now
+              {isLoading ? (
+                <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              ) : 'Book Now'}
             </button>
+            {bookingStatus === 'success' && (
+              <p className="mt-2 text-green-600">Booking successful!</p>
+            )}
+            {bookingStatus === 'error' && (
+              <p className="mt-2 text-red-600">Booking failed. Please try again.</p>
+            )}
           </div>
         </div>
       </div>
