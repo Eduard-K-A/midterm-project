@@ -2,15 +2,17 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useBooking } from '../contexts/BookingContext';
+import { ConfirmationModal } from '../components/ConfirmationModal'; // Assuming ConfirmationModal is imported
 import spaces from '../data/spaces.json';
 
 export const SpaceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
-  const { addBooking } = useBooking();
+  const { addBooking, bookings } = useBooking();
   const [selectedSlot, setSelectedSlot] = useState('');
   const [date, setDate] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const space = spaces.find(s => s.id === Number(id));
@@ -23,17 +25,34 @@ export const SpaceDetail: React.FC = () => {
   const handleBooking = () => {
     if (!user) {
       alert('Please log in to book a space');
-      navigate('/');
       return;
     }
     if (!selectedSlot || !date) {
       alert('Please select a time slot and date');
       return;
     }
+
+    // Check for existing booking with same space, date, and time slot
+    const isDuplicateBooking = bookings.some(
+      (booking) =>
+        booking.spaceId === space.id &&
+        booking.date === date &&
+        booking.timeSlot === selectedSlot
+    );
+
+    if (isDuplicateBooking) {
+      setIsModalOpen(true);
+      return;
+    }
+
     addBooking({ spaceId: space.id, timeSlot: selectedSlot, date });
     alert('Booking successful!');
     setSelectedSlot('');
     setDate('');
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   // Carousel navigation
@@ -142,6 +161,12 @@ export const SpaceDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        onConfirm={closeModal}
+        onCancel={closeModal}
+        message="You have already booked this space for the selected date and time slot."
+      />
     </div>
   );
 };
