@@ -1,14 +1,22 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export const Header: React.FC = () => {
   const { user, login, logout } = useAuth();
   const [username, setUsername] = useState('');
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     setUsername('');
+  };
+
+  const handleBookingsClick = (e: React.MouseEvent) => {
+    if (!user) {
+      e.preventDefault(); // stop navigation
+      alert('Please log in first'); 
+    }
   };
 
   return (
@@ -19,13 +27,23 @@ export const Header: React.FC = () => {
         </h1>
         <nav className="flex items-center space-x-4">
           <Link to="/" className="hover:underline">Home</Link>
+          
+          {/* My Bookings always visible */}
+          <Link
+            to="/dashboard/my-bookings"
+            onClick={handleBookingsClick}
+            className="hover:underline"
+          >
+            My Bookings
+          </Link>
+
           {user ? (
             <>
-              <Link to="/dashboard/my-bookings" className="hover:underline">
-                My Bookings
-              </Link>
               <span>Welcome, {user.username}</span>
-              <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded hover:bg-red-600">
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+              >
                 Logout
               </button>
             </>
@@ -43,7 +61,6 @@ export const Header: React.FC = () => {
                 className="bg-green-500 px-3 py-1 rounded hover:bg-green-600"
               >
                 Login
-                
               </button>
             </div>
           )}
