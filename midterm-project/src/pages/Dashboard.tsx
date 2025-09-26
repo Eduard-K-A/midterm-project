@@ -36,9 +36,9 @@ export const Dashboard: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">My Bookings</h2>
+     <h2 className="text-4xl font-bold mb-6 text-center">My Bookings</h2>
       {bookings.length === 0 ? (
-        <p>No bookings yet.</p>
+        <p className="text-center">No bookings yet.</p>
       ) : (
         <div className="grid gap-4">
           {bookings.map((booking, index) => {
