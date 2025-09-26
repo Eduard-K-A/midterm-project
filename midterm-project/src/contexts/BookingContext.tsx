@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from 'react';
+import { createContext, useContext} from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Booking } from '../types';
 import { useAuth } from './AuthContext';
