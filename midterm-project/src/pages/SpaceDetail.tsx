@@ -34,6 +34,14 @@ export const SpaceDetail: React.FC = () => {
       alert('Please select a time slot and date');
       return;
     }
+      //Block past dates
+  const today = new Date();
+  const selectedDate = new Date(date);
+  today.setHours(0, 0, 0, 0); // normalize time
+  if (selectedDate < today) {
+    alert('You cannot book a past date');
+    return;
+  }
 
     // Check for existing booking with same space, date, and time slot
     const isDuplicateBooking = bookings.some(

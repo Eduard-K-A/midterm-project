@@ -18,8 +18,7 @@ const BookingContext = createContext<BookingContextType>({
 export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
 
-  // store all users' bookings in one object like:
-  // { "User1": [...], "User2": [...] }
+  // store all users' bookings in one object
   const [allBookings, setAllBookings] = useLocalStorage<Record<string, Booking[]>>(
     'bookings',
     {}
