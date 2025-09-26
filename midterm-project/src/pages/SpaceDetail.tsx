@@ -178,7 +178,7 @@ export const SpaceDetail: React.FC = () => {
               value={date}
               onChange={(e) => setDate(e.target.value)}
               className="p-2 border rounded w-full mt-2"
-               min={new Date().toISOString().split("T")[0]} 
+              min={new Date().toISOString().split("T")[0]} //prevents clicking past dates
             />
             <button
               onClick={handleBooking}
